@@ -107,6 +107,7 @@ function checkAdminLogin()
   return true;
 }
 
+// Write module data
 function Action_GetModule()
 {
   writeStartTag("Module");
@@ -122,6 +123,24 @@ function Action_GetModule()
     writeCloseTag("Capabilities");
   
   writeCloseTag("Module");
+}
+
+// Write store data
+function Action_GetStore()
+{
+  $name = "My owesome store";
+  $owner = "Harry Qin";
+  $email = "zergling9999@hotmail.com";
+  $country = "China";
+  $website = "http://baidu.com";
+
+  writeStartTag("Store");
+    writeElement("Name", $name);
+    writeElement("CompanyOrOwner", $owner);
+    writeElement("Email", $email);
+    writeElement("Country", $country);
+    writeElement("Website", $website);
+  writeCloseTag("Store");
 }
 
 // Close the output
