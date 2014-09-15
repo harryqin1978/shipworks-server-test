@@ -38,6 +38,7 @@ function shipworks() {
       case 'getstatuscodes': Action_GetStatusCodes(); break;
       case 'updateorder': Action_UpdateOrder(); break;
       case 'updatestatus': Action_UpdateStatus(); break;
+      case 'updateshipment': Action_UpdateShipment(); break;
       default:
         outputError(20, "'$action' is not supported.");
     }
@@ -459,8 +460,13 @@ function Action_UpdateStatus() {
 
   // return error
   $error_msg = 'This is all your fault! order: ' . $order . ' status: ' . $status . ' comments: ' . $comments;
-  writeStartTag('Error');
-    writeElement('Code', 'FOO100');
-    writeElement('Description', $error_msg);
-  writeCloseTag('Error');
+  outputError('FOO100', $error_msg);
+}
+
+// update order shipment
+function Action_UpdateShipment() {
+  // TODO: I dont know how to trigger this action in shipworks, always say has errors occurred while getting rates.
+  // return success
+  writeStartTag('UpdateSuccess');
+  writeCloseTag('UpdateSuccess');
 }
